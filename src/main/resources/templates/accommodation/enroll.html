@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Stay With Me</title>
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link th:href="@{/css/seller/seller.css}" rel="stylesheet">
+    <link th:href="@{/css/adminPage/accommodation/accommodation.css}" rel="stylesheet">
+    <div th:replace="~{fragments/admin/head.html :: head}"></div>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+
+<body>
+<div  class="container-xxl position-relative bg-white d-flex p-0">
+    <!-- Sidebar Start -->
+    <div th:replace="~{fragments/admin/sideBar.html :: side}"></div>
+    <!-- Sidebar End -->
+
+    <!-- Content Start -->
+    <div class="content">
+        <!-- 상단 내비게이션 바 Start -->
+        <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+            <a th:href="@{/seller-main.do}" class="navbar-brand d-flex d-lg-none me-4">
+                <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+            </a>
+
+            <div class="navbar-nav ms-auto d-flex align-items-center">
+                <span class="navbar-text me-3" th:text="${userId}">관리자</span>
+                <a th:href="@{/logout}" class="btn btn-outline-primary">로그아웃</a>
+            </div>
+        </nav>
+        <!-- 상단 내비게이션 바 End -->
+
+        <!-- Sale & Revenue Start -->
+        <div class="container">
+            <form  name="location" id="accommodationForm" >
+                <div class="row">
+                    <label for="photo">대표사진</label>
+                    <input name="mainPhoto" type="file" id="photo" accept="image/*">
+                    <div style="height: 20%; width: 50%;" id="photo-preview-container" class="preview-container"></div>
+                </div>
+                <div class="row">
+                    <label for="name">숙소 이름</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="row">
+                    <label for="phone">핸드폰 번호</label>
+                    <input type="text" id="phone" required>
+                </div>
+                <div class="accommodation-type">
+                    <label style="font-size: 1.5em">숙소 종류</label>
+                    <div class="accommodation-options">
+                        <div class="option-item">
+                            <input type="radio" id="hotel" class="accommodationType" value="HOTEL">
+                            <label for="hotel">호텔</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="resort" class="accommodationType" value="RESORT">
+                            <label for="resort">리조트</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="pension" class="accommodationType" value="PENSION">
+                            <label for="pension">펜션</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="motel" class="accommodationType" value="MOTEL">
+                            <label for="motel">모텔</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="sub-facility">부대시설 * 이외 시설은 직접 기입 부탁드립니다.</label>
+                    <input type="text" id="sub-facility" name="accommodationFacilities[]" >
+                </div>
+                <div class="row">
+                    <label>부대시설 태그 (중복 선택 가능)</label>
+                    <div class="tags">
+                        <!-- 태그 정보를 배열로 정의 -->
+                        <script>
+                            const tags = [
+                                { id: "wifi", label: "Wi-Fi" },
+                                { id: "parking", label: "주차장" },
+                                { id: "pool", label: "수영장" },
+                                { id: "gym", label: "헬스장" },
+                                { id: "restaurant", label: "레스토랑" },
+                                { id: "bar", label: "취사 가능" },
+                                { id: "laundry", label: "세탁실" },
+                                { id: "spa", label: "스파" },
+                                { id: "room_service", label: "룸 서비스" },
+                                { id: "concierge", label: "카페" },
+                                { id: "pet_friendly", label: "반려동물 동반 가능" },
+                                { id: "BBQ", label: "BBQ" },
+                                { id: "lounge", label: "라운지" }
+                            ];
+
+                            tags.forEach(tag => {
+                                document.write(`
+                    <div class="tag">
+                        <input type="checkbox" id="${tag.id}" data-tag="${tag.label}">
+                        <label for="${tag.id}">${tag.label}</label>
+                    </div>
+                `);
+                            });
+                        </script>
+                    </div>
+                </div>
+
+                <!--            tv, 취사 가능, 에어컨, 노래방, 짐보관가능, 금연, BBQ, 라운지,  골프장, 스키장, 해변, 키즈클럽, -->
+
+                <div class="editor-container">
+                    <span style="align-items: center; font-size: 30px; font-weight: bold">객실 소개</span><br>
+                    <b>필수 기입형식</b><br>
+                    <span>* 숙소 소개</span><br>
+                    <span>* 객실 정보</span><br>
+                    <span>* 입/퇴실 시간</span><br>
+                    <span>* 부대시설 소개</span><br>
+                    <div class="editor-toolbar">
+                        <button type="button" class="toolbar-btn" data-command="bold"><i class="fa fa-bold"></i></button>
+                        <button type="button" class="toolbar-btn" data-command="italic"><i class="fa fa-italic"></i></button>
+                        <button type="button" class="toolbar-btn" data-command="justifyLeft"><i class="fa fa-align-left"></i></button>
+                        <button type="button" class="toolbar-btn" data-command="justifyCenter"><i class="fa fa-align-center"></i></button>
+                        <button type="button" class="toolbar-btn" data-command="insertUnorderedList"><i class="fa fa-list-ul"></i></button>
+                        <button type="button" class="toolbar-btn" data-command="insertOrderedList"><i class="fa fa-list-ol"></i></button>
+                        <select id="fontSize" class="toolbar-select">
+                            <option value="3">10px</option>
+                            <option value="4">12px</option>
+                            <option value="5">16px</option>
+                            <option value="6">20px</option>
+                            <option value="7">30px</option>
+                        </select>
+                    </div>
+                    <div th:name="accommodationInfo" id="editor" contenteditable="true" class="editor-content"></div>
+                </div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', (event) => {
+                        const toolbarButtons = document.querySelectorAll('.toolbar-btn');
+                        toolbarButtons.forEach(button => {
+                            button.addEventListener('click', () => {
+                                const command = button.getAttribute('data-command');
+                                document.execCommand(command, false, null);
+                            });
+                        });
+
+                        document.getElementById('fontSize').addEventListener('change', function() {
+                            const fontSize = this.value;
+                            document.execCommand('fontSize', false, fontSize);
+                        });
+
+                        document.querySelector('.submit-btn').addEventListener('click', () => {
+                            const content = document.getElementById('editor').innerHTML;
+                        });
+                    });
+
+                </script>
+
+
+                <!-- Recent Sales End -->
+                <div class="address-container">
+                    <button type="button" onclick="sample5_execDaumPostcode()">주소 검색</button>
+                    <input type="text" id="sample5_address" name="address" required>
+                    <input type="hidden" id="sample5_region" name="region">
+                    <input type="hidden" id="sample5_roadName" name="roadName">
+                    <input type="hidden" id="sample5_lat" name="lat">
+                    <input type="hidden" id="sample5_lon" name="lon">
+                </div>
+                <div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
+
+                <br>
+                <button type="submit" id="submitButton">업소 등록 하기</button>
+            </form>
+
+
+            <!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start">
+                            &copy; <a href="#">Your Site Name</a>, All Right Reserved.
+                        </div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end">
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                            </br>
+                            Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+        </div>
+        <!-- Content End -->
+    </div>
+    <script>
+
+
+
+    </script>
+
+    <!-- JavaScript Libraries -->
+    <!--    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>-->
+    <!--    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a8f3c460613adc2cb691b893c7f0b43d&libraries=services"></script>-->
+    <!--    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?a8f3c460613adc2cb691b893c7f0b43d"></script>-->
+
+
+
+    <script type="text/javascript" src="/smarteditor/js/editor.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2f7b0e969dab557ac2ccd2d246136826&libraries=services"></script>
+    <script th:src="@{js/addressAPI.js}"></script>
+    <script th:src="@{js/adminPage/accommodation/accommodation.js}"></script>
+    <!--    <div th:replace="~{fragments/admin/js.html :: adminJs}"></div>-->
+
+</div>
+
+</body>
+
+</html>

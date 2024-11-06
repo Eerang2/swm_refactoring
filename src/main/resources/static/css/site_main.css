@@ -1,0 +1,257 @@
+/* 아이콘 폰트 설정 */
+/*@font-face {
+    font-family: 'Flaticon';
+    src: url('path/to/flaticon.eot');
+    src: url('path/to/flaticon.eot?#iefix') format('embedded-opentype'),
+         url('path/to/flaticon.woff2') format('woff2'),
+         url('path/to/flaticon.woff') format('woff'),
+         url('path/to/flaticon.ttf') format('truetype'),
+         url('path/to/flaticon.svg#Flaticon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+/* 아이콘 클래스 설정 */
+.flaticon-hotel::before,
+.flaticon-resort::before,
+.flaticon-pension::before {
+    font-family: 'Flaticon';
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    margin-right: 8px;
+    text-align: center;
+}
+
+/* 아이콘에 대한 유니코드 설정 */
+.flaticon-hotel::before {
+    content: '\f104'; /* 호텔 아이콘 유니코드 */
+}
+
+.flaticon-resort::before {
+    content: '\f105'; /* 리조트 아이콘 유니코드 */
+}
+
+.flaticon-pension::before {
+    content: '\f106'; /* 펜션 아이콘 유니코드 */
+}
+
+/* 숙박 유형 버튼 스타일 설정 */
+.lodging_btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: gray;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 숙박 유형 버튼 호버 효과 */
+.lodging_btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* 숙박 유형 버튼 컨테이너 스타일 */
+.browse {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* search-box-top: 입력 필드들을 동일한 비율로 정렬 */
+.search-box-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 체크인 날짜 입력 필드 스타일 */
+.checkin-date-input {
+    flex: 1;
+    height: 50px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* 체크아웃 날짜 입력 필드 스타일 */
+.checkout-date-input {
+    flex: 1;
+    height: 50px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* 인원 입력 필드 스타일 */
+.guest-input {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* 버튼과 숫자 간의 간격 조정 */
+    height: 50px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* 인원 수 조절 버튼 스타일 */
+.guest-btn {
+    color: #138496;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: transparent; /* 배경색을 투명으로 설정 */
+    outline: none; /* 기본 테두리 제거 */
+}
+
+/* 인원 수 조절 버튼 호버 시 스타일 */
+.guest-btn:hover {
+    background-color: #138496;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+/* 인원 수 조절 버튼 클릭 시 스타일 */
+.guest-btn:active {
+    background-color: #0f6674; /* 클릭 시 배경색을 조금 더 어둡게 변경 */
+    color: white;
+    font-weight: bold;
+}
+
+/* 인원 수 조절 버튼 포커스 시 스타일 (테두리 제거) */
+.guest-btn:focus {
+    outline: none; /* 포커스 시 outline 제거 */
+}
+
+/* 인원 수 표시 영역 스타일 */
+#guest-count {
+    font-size: 16px;
+    width: 30px;
+    text-align: center;
+    color: #138496;
+    font-weight: bold;
+    border: none;
+    outline: none; /* 테두리 제거 */
+}
+
+
+
+/* search-box-bottom: 검색어 입력 필드와 검색 버튼 정렬 */
+.search-box-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 검색어 입력 필드 스타일 */
+.main-search-input {
+    flex: 1;
+    height: 50px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* 검색 버튼 스타일 */
+.search-submit {
+    height: 50px;
+    padding: 0 30px;
+    font-size: 16px;
+    background-color: #17a2b8;
+    border: 1px solid #17a2b8;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+/* 검색 버튼 호버 효과 */
+.search-submit:hover {
+    background-color: #138496;
+}
+
+/* 기본 달력 아이콘 숨기기 */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+/* 날짜 입력 필드에 대한 플레이스홀더 스타일 */
+.checkin-date-input::before,
+.checkout-date-input::before {
+    content: attr(placeholder);
+    color: grey;
+}
+
+.checkin-date-input:focus::before,
+.checkout-date-input:focus::before {
+    content: '';
+}
+
+/* NavBar 스타일 (기존 레이아웃 유지) */
+.navbar {
+    background-color: transparent;
+    padding: 10px 20px;
+    box-shadow: none;
+    z-index: 1000;
+}
+
+/* NavBar 링크 스타일 */
+.navbar .nav-item {
+    margin-right: 15px;
+}
+
+.navbar .nav-item a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar .nav-item a:hover {
+    color: #007bff;
+}
+
+/* 메인 페이지에서 NavBar와 겹치지 않도록 컨텐츠 조정 */
+body.index-page {
+    padding-top: 0;
+}
+
+/* 메인 배너 및 콘텐츠 스타일 */
+.banner-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.banner-content {
+    text-align: center;
+    color: white;
+}
+
+.banner-content h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.banner-content p {
+    font-size: 20px;
+    margin-top: 10px;
+}
