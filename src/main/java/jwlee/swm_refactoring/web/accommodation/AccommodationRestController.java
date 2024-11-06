@@ -1,10 +1,7 @@
 package jwlee.swm_refactoring.web.accommodation;
 
-import jwlee.swm_refactoring.domain.enums.ErrorCode;
-import jwlee.swm_refactoring.domain.exception.CustomException;
 import jwlee.swm_refactoring.domain.model.Accommodation;
 import jwlee.swm_refactoring.domain.service.AccommodationService;
-import jwlee.swm_refactoring.web.common.BaseApiController;
 import jwlee.swm_refactoring.web.dto.AccommodationReq;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
