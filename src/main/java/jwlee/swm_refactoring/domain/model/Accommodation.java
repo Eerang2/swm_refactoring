@@ -27,6 +27,7 @@ public class Accommodation {
 
     public static Accommodation from(AccommodationEntity entity) {
         return Accommodation.builder()
+                .id(entity.getId())
                 .name(entity.getName())
                 .phone(entity.getPhone())
                 .accommodationType(entity.getAccommodationType())
