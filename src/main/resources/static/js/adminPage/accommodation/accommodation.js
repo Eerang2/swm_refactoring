@@ -4,6 +4,11 @@ $(document).ready(
         $('#accommodationForm').on('submit', function(event) {
             event.preventDefault(); // 폼 기본 제출 막기
 
+            const facilities = [];
+            document.querySelectorAll('.tag input[type="checkbox"]:checked').forEach(function(checkbox) {
+                facilities.push(checkbox.getAttribute('data-tag')); // 체크된 태그의 이름을 배열에 추가
+            });
+
             // 폼 데이터 가져오기
             const postData = {
                 name: $('#name').val(),
@@ -24,9 +29,24 @@ $(document).ready(
                 data: JSON.stringify(postData),
                 contentType: 'application/json',
                 success: function(res) {
-                    alert('게시글이 성공적으로 등록되었습니다!');
                     const newId = res.id;
-                    window.location.href = '/accommodation/'+newId;
+                    $.ajax({
+                        type: 'POST',
+                        url: '/api/facility/add',
+                        data: JSON.stringify({
+                            accommodationId: newId,
+                            facilities: facilities
+                        }),
+                        contentType: 'application/json',
+                        success: function() {
+                            alert('숙소가 성공적으로 등록되었습니다!');
+                            window.location.href = '/accommodation/' + newId;
+                        },
+                        error: function(error) {
+                            alert('부대시설 등록에 실패했습니다.');
+                            console.error("Error:", error);
+                        }
+                    });
                 },
                 error: function(error) {
                     alert('게시글 등록에 실패했습니다.');
@@ -34,4 +54,57 @@ $(document).ready(
                 }
             });
         });
+});
+
+
+
+/**
+ *  숙소 형태 태그 단일선택
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    var checkboxes = document.querySelectorAll('.accommodationType');
+
+    checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                checkboxes.forEach(function(box) {
+                    if (box !== checkbox) {
+                        box.checked = false;
+                    }
+                });
+            }
+        });
+    });
+});
+document.querySelectorAll('.tag input[type="radio"]').forEach(function (radio) {
+    radio.addEventListener('change', function () {
+        var typeInput = document.getElementById('type');
+        typeInput.value = this.getAttribute('data-tag');
+    });
+});
+
+
+/**
+ * 부대시설 태그 추가
+ */
+document.querySelectorAll('.tag input[type="checkbox"]').forEach(function (checkbox) {
+    checkbox.addEventListener('change', function () {
+
+        var subFacilityInput = document.getElementById('sub-facility');
+        var tagValue = this.getAttribute('data-tag');
+
+        if (this.checked) {
+            if (subFacilityInput.value) {
+                subFacilityInput.value += ', ' + tagValue;
+            } else {
+                subFacilityInput.value = tagValue;
+            }
+        } else {
+            var values = subFacilityInput.value.split(', ');
+            values = values.filter(function (value) {
+                return value !== tagValue;
+            });
+            subFacilityInput.value = values.join(', ');
+        }
+    });
 });
