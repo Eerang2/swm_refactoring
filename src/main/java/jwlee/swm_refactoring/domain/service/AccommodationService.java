@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -30,8 +31,9 @@ public class AccommodationService {
 
     @Transactional
     public void saveFacilities(List<Facility> facilities) {
-        facilities.stream()
-                .map(Facility::toEntity)
-                .forEach(facilityRepository::save);
+        List<FacilityEntity> entities = facilities.stream()
+                                        .map(Facility::toEntity)
+                                        .collect(Collectors.toList());
+        facilityRepository.saveAll(entities);
     }
 }
