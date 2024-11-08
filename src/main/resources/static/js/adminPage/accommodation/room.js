@@ -135,30 +135,6 @@ document.getElementById('addRoomBtn').addEventListener('click', function() {
     document.getElementById('roomsContainer').appendChild(roomContainer);
 });
 
-/**
- * 카테고리 선택 및 태그 추가
- */
-document.querySelectorAll('.tag input[type="checkbox"]').forEach(function (checkbox) {
-    checkbox.addEventListener('change', function () {
-
-        var subFacilityInput = document.getElementById('sub-facility');
-        var tagValue = this.getAttribute('data-tag');
-
-        if (this.checked) {
-            if (subFacilityInput.value) {
-                subFacilityInput.value += ', ' + tagValue;
-            } else {
-                subFacilityInput.value = tagValue;
-            }
-        } else {
-            var values = subFacilityInput.value.split(', ');
-            values = values.filter(function (value) {
-                return value !== tagValue;
-            });
-            subFacilityInput.value = values.join(', ');
-        }
-    });
-});
 
 
 /**
@@ -341,33 +317,6 @@ function deleteMainPhoto(imgContainer) {
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    var selectedType = document.getElementById("selectedAccommodationType").value; // 숨겨진 input의 값을 가져옴
-    var options = document.getElementsByClassName("accommodationType"); // 모든 라디오 버튼을 가져옴
-
-    for (var i = 0; i < options.length; i++) {
-        if (options[i].value === selectedType) {
-            options[i].checked = true; // 값이 일치하면 해당 라디오 버튼을 선택함
-            break;
-        }
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    var checkboxes = document.querySelectorAll('.accommodationType');
-
-    checkboxes.forEach(function(checkbox) {
-        checkbox.addEventListener('change', function() {
-            if (this.checked) {
-                checkboxes.forEach(function(box) {
-                    if (box !== checkbox) {
-                        box.checked = false;
-                    }
-                });
-            }
-        });
-    });
-});
 
 
 
@@ -434,12 +383,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-document.querySelectorAll('.tag input[type="radio"]').forEach(function (radio) {
-    radio.addEventListener('change', function () {
-        var typeInput = document.getElementById('type');
-        typeInput.value = this.getAttribute('data-tag');
-    });
-});
 
 
 document.querySelector('form').addEventListener('submit', function(event) {
