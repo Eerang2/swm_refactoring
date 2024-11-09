@@ -7,10 +7,7 @@ import jwlee.swm_refactoring.web.dto.AccommodationReq;
 import jwlee.swm_refactoring.web.dto.FacilityReq;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,4 +29,6 @@ public class AccommodationRestController {
         List<Facility> facilities = facilityReq.toFacility();
         accommodationService.saveFacilities(facilities);
     }
+
+
 }

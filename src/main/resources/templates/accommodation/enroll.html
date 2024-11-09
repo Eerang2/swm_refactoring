@@ -46,11 +46,11 @@
                 </div>
                 <div class="row">
                     <label for="name">숙소 이름</label>
-                    <input type="text" id="name" required>
+                    <input type="text" id="name">
                 </div>
                 <div class="row">
                     <label for="phone">핸드폰 번호</label>
-                    <input type="text" id="phone" required>
+                    <input type="text" id="phone">
                 </div>
                 <div class="accommodation-type">
                     <label style="font-size: 1.5em">숙소 종류</label>
@@ -163,7 +163,7 @@
                 <!-- Recent Sales End -->
                 <div class="address-container">
                     <button type="button" onclick="sample5_execDaumPostcode()">주소 검색</button>
-                    <input type="text" id="sample5_address" name="address" required>
+                    <input type="text" id="sample5_address" name="address" readonly>
                     <input type="hidden" id="sample5_region" name="region">
                     <input type="hidden" id="sample5_roadName" name="roadName">
                     <input type="hidden" id="sample5_lat" name="lat">
@@ -202,19 +202,11 @@
 
     </script>
 
-    <!-- JavaScript Libraries -->
-    <!--    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>-->
-    <!--    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a8f3c460613adc2cb691b893c7f0b43d&libraries=services"></script>-->
-    <!--    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?a8f3c460613adc2cb691b893c7f0b43d"></script>-->
-
-
-
-    <script type="text/javascript" src="/smarteditor/js/editor.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2f7b0e969dab557ac2ccd2d246136826&libraries=services"></script>
-    <script th:src="@{js/addressAPI.js}"></script>
-    <script th:src="@{js/adminPage/accommodation/accommodation.js}"></script>
-    <!--    <div th:replace="~{fragments/admin/js.html :: adminJs}"></div>-->
+    <script src="/js/adminPage/accommodation/accommodation.js"></script>
+    <script src="/js/addressAPI.js"></script>
+        <div th:replace="~{fragments/admin/js.html :: adminJs}"></div>
 
 </div>
 
