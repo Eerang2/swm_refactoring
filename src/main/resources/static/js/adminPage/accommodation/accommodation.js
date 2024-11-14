@@ -40,7 +40,7 @@ $(document).ready(
                         contentType: 'application/json',
                         success: function() {
                             alert('숙소가 성공적으로 등록되었습니다!');
-                            window.location.href = '/accommodation/' + newId;
+                            window.location.href = '/seller/' + newId;
                         },
                         error: function(error) {
                             alert('부대시설 등록에 실패했습니다.');

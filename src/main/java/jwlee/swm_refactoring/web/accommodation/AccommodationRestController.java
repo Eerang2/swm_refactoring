@@ -29,6 +29,4 @@ public class AccommodationRestController {
         List<Facility> facilities = facilityReq.toFacility();
         accommodationService.saveFacilities(facilities);
     }
-
-
 }

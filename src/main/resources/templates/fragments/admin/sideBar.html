@@ -21,19 +21,19 @@
                 <div class="nav-item dropdown show">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>숙소관리</a>
                     <div class="dropdown-menu show bg-transparent border-0">
-                        <a th:href="@{/enroll}" class="dropdown-item"
-                           th:classappend="${currentUrl == '/enroll'} ? ' active' : ''">숙소등록</a>
-                        <a th:href="@{/modify}" class="dropdown-item"
-                           th:classappend="${currentUrl == '/modify'} ? ' active' : ''">숙소수정</a>
+                        <a th:href="@{/accommodation/create}" class="dropdown-item"
+                           th:classappend="${currentUrl == '/accommodation/create'} ? ' active' : ''">숙소등록</a>
+                        <a th:href="@{/accommodation/update}" class="dropdown-item" methods="POST"
+                           th:classappend="${currentUrl == '/accommodation/update'} ? ' active' : ''">숙소수정</a>
                     </div>
                 </div>
                 <div class="nav-item dropdown show">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>방관리</a>
                     <div class="dropdown-menu show bg-transparent border-0">
-                        <a th:href="@{/enroll}" class="dropdown-item"
-                           th:classappend="${currentUrl == '/enroll'} ? ' active' : ''">방등록</a>
-                        <a th:href="@{/modify}" class="dropdown-item"
-                           th:classappend="${currentUrl == '/modify'} ? ' active' : ''">방수정</a>
+                        <a th:href="@{/room/create}" class="dropdown-item"
+                           th:classappend="${currentUrl == '/room/create'} ? ' active' : ''">방등록</a>
+                        <a th:href="@{/room/update}" class="dropdown-item"
+                           th:classappend="${currentUrl == '/room/update'} ? ' active' : ''">방수정</a>
                     </div>
                 </div>
                 <div class="nav-item dropdown show">
