@@ -1,4 +1,4 @@
-package jwlee.swm_refactoring.domain.repository.entity;
+package jwlee.swm_refactoring.domain.repository.admin.seller.entity;
 
 import jakarta.persistence.*;
 import jwlee.swm_refactoring.domain.enums.ImageType;

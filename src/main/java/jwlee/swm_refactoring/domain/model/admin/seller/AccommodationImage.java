@@ -1,9 +1,7 @@
-package jwlee.swm_refactoring.domain.model;
+package jwlee.swm_refactoring.domain.model.admin.seller;
 
 import jwlee.swm_refactoring.domain.enums.ImageType;
 import lombok.Getter;
-
-import javax.imageio.ImageTypeSpecifier;
 
 @Getter
 public class AccommodationImage {

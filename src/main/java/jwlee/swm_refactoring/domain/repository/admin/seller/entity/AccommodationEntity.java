@@ -1,13 +1,11 @@
-package jwlee.swm_refactoring.domain.repository.entity;
+package jwlee.swm_refactoring.domain.repository.admin.seller.entity;
 
 import jakarta.persistence.*;
-import jwlee.swm_refactoring.domain.enums.AccommodationType;
+import jwlee.swm_refactoring.domain.enums.admin.seller.AccommodationType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Entity
 @Getter

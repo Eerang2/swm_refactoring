@@ -1,6 +1,6 @@
-package jwlee.swm_refactoring.domain.repository;
+package jwlee.swm_refactoring.domain.repository.admin.seller;
 
-import jwlee.swm_refactoring.domain.repository.entity.ImageEntity;
+import jwlee.swm_refactoring.domain.repository.admin.seller.entity.ImageEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

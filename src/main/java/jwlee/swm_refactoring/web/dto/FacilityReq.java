@@ -1,12 +1,11 @@
 package jwlee.swm_refactoring.web.dto;
 
-import jwlee.swm_refactoring.domain.model.Facility;
+import jwlee.swm_refactoring.domain.model.admin.seller.Facility;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 

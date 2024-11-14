@@ -1,10 +1,7 @@
 package jwlee.swm_refactoring.web.accommodation;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jwlee.swm_refactoring.domain.enums.AccommodationType;
-import jwlee.swm_refactoring.domain.enums.ImageType;
-import jwlee.swm_refactoring.domain.model.Accommodation;
-import jwlee.swm_refactoring.domain.model.GeoLocation;
-import jwlee.swm_refactoring.domain.service.AccommodationService;
+import jwlee.swm_refactoring.domain.enums.admin.seller.AccommodationType;
+import jwlee.swm_refactoring.domain.service.admin.seller.AccommodationService;
 import jwlee.swm_refactoring.web.dto.AccommodationReq;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,11 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.util.Arrays;
-
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.given;
-import static org.springframework.mock.http.server.reactive.MockServerHttpRequest.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.hamcrest.Matchers.is;

@@ -1,6 +1,5 @@
-package jwlee.swm_refactoring.domain.model;
+package jwlee.swm_refactoring.domain.model.admin.seller;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

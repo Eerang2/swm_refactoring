@@ -1,4 +1,4 @@
-package jwlee.swm_refactoring.domain.enums;
+package jwlee.swm_refactoring.domain.enums.admin.seller;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

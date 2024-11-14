@@ -2,16 +2,13 @@ package jwlee.swm_refactoring.web.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jwlee.swm_refactoring.domain.enums.AccommodationType;
-import jwlee.swm_refactoring.domain.model.Accommodation;
-import jwlee.swm_refactoring.domain.model.Facility;
-import jwlee.swm_refactoring.domain.model.GeoLocation;
+import jwlee.swm_refactoring.domain.enums.admin.seller.AccommodationType;
+import jwlee.swm_refactoring.domain.model.admin.seller.Accommodation;
+import jwlee.swm_refactoring.domain.model.admin.seller.GeoLocation;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Getter
 @Builder

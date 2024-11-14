@@ -1,6 +1,6 @@
-package jwlee.swm_refactoring.domain.model;
+package jwlee.swm_refactoring.domain.model.admin.seller;
 
-import jwlee.swm_refactoring.domain.repository.entity.FacilityEntity;
+import jwlee.swm_refactoring.domain.repository.admin.seller.entity.FacilityEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

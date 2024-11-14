@@ -1,14 +1,11 @@
-package jwlee.swm_refactoring.domain.model;
+package jwlee.swm_refactoring.domain.model.admin.seller;
 
-import jwlee.swm_refactoring.domain.enums.AccommodationType;
-import jwlee.swm_refactoring.domain.repository.entity.AccommodationEntity;
-import jwlee.swm_refactoring.web.dto.AccommodationReq;
+import jwlee.swm_refactoring.domain.enums.admin.seller.AccommodationType;
+import jwlee.swm_refactoring.domain.repository.admin.seller.entity.AccommodationEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Getter
 @Builder

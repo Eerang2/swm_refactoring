@@ -1,9 +1,9 @@
-package jwlee.swm_refactoring.domain.service;
+package jwlee.swm_refactoring.domain.service.admin.seller;
 
 
 import jwlee.swm_refactoring.domain.enums.ImageType;
-import jwlee.swm_refactoring.domain.repository.ImageRepository;
-import jwlee.swm_refactoring.domain.repository.entity.ImageEntity;
+import jwlee.swm_refactoring.domain.repository.admin.seller.ImageRepository;
+import jwlee.swm_refactoring.domain.repository.admin.seller.entity.ImageEntity;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

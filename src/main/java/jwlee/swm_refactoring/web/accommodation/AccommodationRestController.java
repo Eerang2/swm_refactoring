@@ -1,8 +1,8 @@
 package jwlee.swm_refactoring.web.accommodation;
 
-import jwlee.swm_refactoring.domain.model.Accommodation;
-import jwlee.swm_refactoring.domain.model.Facility;
-import jwlee.swm_refactoring.domain.service.AccommodationService;
+import jwlee.swm_refactoring.domain.model.admin.seller.Accommodation;
+import jwlee.swm_refactoring.domain.model.admin.seller.Facility;
+import jwlee.swm_refactoring.domain.service.admin.seller.AccommodationService;
 import jwlee.swm_refactoring.web.dto.AccommodationReq;
 import jwlee.swm_refactoring.web.dto.FacilityReq;
 import lombok.RequiredArgsConstructor;

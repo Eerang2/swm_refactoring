@@ -1,10 +1,10 @@
 package jwlee.swm_refactoring.domain.repository;
 
-import jwlee.swm_refactoring.domain.enums.AccommodationType;
-import jwlee.swm_refactoring.domain.model.Accommodation;
-import jwlee.swm_refactoring.domain.model.GeoLocation;
-import jwlee.swm_refactoring.domain.repository.entity.AccommodationEntity;
-import org.junit.jupiter.api.Disabled;
+import jwlee.swm_refactoring.domain.enums.admin.seller.AccommodationType;
+import jwlee.swm_refactoring.domain.model.admin.seller.Accommodation;
+import jwlee.swm_refactoring.domain.model.admin.seller.GeoLocation;
+import jwlee.swm_refactoring.domain.repository.admin.seller.AccommodationRepository;
+import jwlee.swm_refactoring.domain.repository.admin.seller.entity.AccommodationEntity;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
