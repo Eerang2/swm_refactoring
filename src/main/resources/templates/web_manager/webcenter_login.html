@@ -21,17 +21,17 @@
     <div class="right-section">
         <h2>Login Account</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <form th:action="@{/signin}" method="post">
-            <input type="text" name="userId" placeholder="Email ID" required>
+        <form th:action="@{/api/admin/signin}" method="POST">
+            <input type="text" name="userId" placeholder="ID" required>
             <input type="password" name="userPwd" placeholder="Password" required>
             <div class="options">
                 <!-- 판매자(Seller) 또는 관리자(Admin) 선택 라디오 버튼 -->
                 <label>
-                    <input type="radio" name="role" value="ROLE_ACCOMMODATION_ADMIN" required checked>
+                    <input type="radio" name="role" value="ACCOMMODATION_ADMIN" required checked>
                     판매자
                 </label>
                 <label>
-                    <input type="radio" name="role" value="ROLE_SITE_ADMIN" required>
+                    <input type="radio" name="role" value="SITE_ADMIN" required>
                     관리자
                 </label>
             </div>
