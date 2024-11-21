@@ -17,6 +17,7 @@ spring:
   sql:
     init:
       mode: embedded
+      data-locations: classpath:data.sql
   datasource:
     url: jdbc:mysql://localhost:3306/sys
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -24,3 +25,7 @@ spring:
     password: dnalgustjr!
   thymeleaf:
     cache : false
+
+security:
+  encryption:
+    secret-key: "b2d6f5c79a2b2f1db939f04e3dbd6d9bdb56c07b557073d2a0c24fd4faec0a4f"

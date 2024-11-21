@@ -24,6 +24,8 @@ public class Accommodation {
 
     private String mainImagePath;
 
+    private Long sellerAdminId;
+
     public static Accommodation from(AccommodationEntity entity) {
         return Accommodation.builder()
                 .id(entity.getId())
@@ -34,6 +36,7 @@ public class Accommodation {
                 .geoLocation(new GeoLocation(entity.getLatitude(), entity.getLatitude()))
                 .address1(entity.getAddress1())
                 .address2(entity.getAddress2())
+                .sellerAdminId(entity.getSellerAdminId())
                 .build();
     }
 

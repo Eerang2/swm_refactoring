@@ -43,4 +43,6 @@ public class AccommodationEntity {
 
     @Column(nullable = false)
     private String address2;
+
+    private Long sellerAdminId;
 }

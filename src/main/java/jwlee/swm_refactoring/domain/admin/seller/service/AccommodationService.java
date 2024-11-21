@@ -35,4 +35,8 @@ public class AccommodationService {
                                         .collect(Collectors.toList());
         facilityRepository.saveAll(entities);
     }
+
+    public void findById(long id) {
+        accommodationRepository.findSellerById(id);
+    }
 }

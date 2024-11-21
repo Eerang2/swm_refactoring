@@ -36,6 +36,8 @@ public class AccommodationReq {
 
     private String imagePath;
 
+    private Long sellerAdminId;
+
     public Accommodation toAccommodation() {
         return Accommodation.builder()
                 .name(name)
@@ -45,6 +47,7 @@ public class AccommodationReq {
                 .address1(address1)
                 .address2(address2)
                 .geoLocation(new GeoLocation(longitude, latitude))
+                .sellerAdminId(sellerAdminId)
                 .build();
     }
 }

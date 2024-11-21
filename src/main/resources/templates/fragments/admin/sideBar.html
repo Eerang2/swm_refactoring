@@ -23,8 +23,8 @@
                     <div class="dropdown-menu show bg-transparent border-0">
                         <a th:href="@{/accommodation/create}" class="dropdown-item"
                            th:classappend="${currentUrl == '/accommodation/create'} ? ' active' : ''">숙소등록</a>
-                        <a th:href="@{/accommodation/update}" class="dropdown-item" methods="POST"
-                           th:classappend="${currentUrl == '/accommodation/update'} ? ' active' : ''">숙소수정</a>
+
+                        <a id="update-link" href="#" class="dropdown-item">숙소수정</a>
                     </div>
                 </div>
                 <div class="nav-item dropdown show">
@@ -60,5 +60,26 @@
         </nav>
     </div>
 </th:block>
+<script>
+    $(document).ready(function () {
+        // AJAX 요청을 통해 accommodationId 가져오기
+        $.ajax({
+            url: '/api/get/id', // API 엔드포인트
+            method: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                // 성공적으로 데이터 수신
+                const accommodationId = data.accommodationId; // API가 반환한 ID
+                if (accommodationId) {
+                    $("#update-link").attr("href", `/accommodation/update/${accommodationId}`);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching accommodation ID:', error);
+            }
+        });
+    });
+</script>
+
 </body>
 </html>

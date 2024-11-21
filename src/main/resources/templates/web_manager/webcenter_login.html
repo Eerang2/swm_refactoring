@@ -21,23 +21,64 @@
     <div class="right-section">
         <h2>Login Account</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <form th:action="@{/api/admin/signin}" method="POST">
-            <input type="text" name="userId" placeholder="ID" required>
-            <input type="password" name="userPwd" placeholder="Password" required>
+        <form >
+            <input type="text" name="adminId" id="adminId" placeholder="ID" required>
+            <input type="password" name="userPwd" id="password" placeholder="Password" required>
             <div class="options">
                 <!-- 판매자(Seller) 또는 관리자(Admin) 선택 라디오 버튼 -->
                 <label>
-                    <input type="radio" name="role" value="ACCOMMODATION_ADMIN" required checked>
+                    <input type="radio" name="role" id="seller" value="ACCOMMODATION_ADMIN" required checked>
                     판매자
                 </label>
                 <label>
-                    <input type="radio" name="role" value="SITE_ADMIN" required>
+                    <input type="radio" name="role" id="manager" value="SITE_ADMIN" required>
                     관리자
                 </label>
             </div>
-            <button type="submit">SUBSCRIBE</button>
+            <button type="submit" id="login">SUBSCRIBE</button>
         </form>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // 폼 제출 이벤트 핸들러
+        $("#login").on("click", function (event) {
+            event.preventDefault(); // 기본 제출 동작 방지
+
+            // 폼 데이터를 JSON으로 변환
+            const formData = {
+                adminId: $("#adminId").val(),
+                password: $("#password").val(),
+                adminRole: $("input[name='role']:checked").val() // 선택된 라디오 버튼 값
+            };
+
+            // AJAX 요청
+            $.ajax({
+                type: "POST",
+                url: "/api/admin/login", // 서버 엔드포인트
+                contentType: "application/json", // 요청 데이터 형식
+                data: JSON.stringify(formData), // JSON 데이터로 변환
+                success: function (response) {
+                    console.log("Response:", response);
+
+                    const role = response.role;
+                    const id = response.id;
+
+                    if (role === "ACCOMMODATION_ADMIN") {
+                        window.location.href = "/accommodation/index/" + id;
+                    } else if (role === "SITE_ADMIN") {
+                        window.location.href = "/admin/index/" + id;
+                    } else {
+                        alert("등록된 아이디가 아닙니다.");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("등록 실패: " + error + "..." + xhr + "..." + status);
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
