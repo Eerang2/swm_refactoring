@@ -50,6 +50,7 @@ public class AdminService {
         return LoginRes.builder()
                 .id(admin.getId())
                 .token(jwtUtil.createAccessToken(Admin.from(admin)))
+                .role(admin.getAdminRole())
                 .build();
     }
 }
