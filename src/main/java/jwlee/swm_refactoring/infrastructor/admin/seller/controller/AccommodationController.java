@@ -7,25 +7,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class AccommodationController {
-    @GetMapping("/accommodation/index/{id}")
+    @GetMapping("/admin/seller/{id}")
     public String index(@PathVariable("id") long id, Model model) {
         model.addAttribute("id", id);
         return "seller/seller";
     }
 
-    @GetMapping("/accommodation/create")
+    @GetMapping("/admin/seller/enroll")
     public String enroll() {
         return "accommodation/enroll";
     }
 
-    @GetMapping("/accommodation/update")
+    @GetMapping("/admin/seller/update")
     public String update() {
         return "accommodation/update";
     }
 
 
     // POST 로 바꿔서 데이터 값 받기
-    @GetMapping("/seller/{id}")
+    @GetMapping("/seller/ss/{id}")
     public String updateAccommodation(@PathVariable("id") Long id) {
         return "seller/seller";
     }

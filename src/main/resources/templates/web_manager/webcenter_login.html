@@ -66,9 +66,9 @@
                     const id = response.id;
 
                     if (role === "ACCOMMODATION_ADMIN") {
-                        window.location.href = "/accommodation/index/" + id;
+                        window.location.href = "/admin/seller/" + id;
                     } else if (role === "SITE_ADMIN") {
-                        window.location.href = "/admin/index/" + id;
+                        window.location.href = "/admin/manager/" + id;
                     } else {
                         alert("등록된 아이디가 아닙니다.");
                     }
