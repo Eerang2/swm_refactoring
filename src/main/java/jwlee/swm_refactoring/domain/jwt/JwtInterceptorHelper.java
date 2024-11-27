@@ -25,7 +25,7 @@ public class JwtInterceptorHelper {
             Cookie[] cookies = request.getCookies();
 
             for (Cookie c : cookies) {
-                if ("AUTH_ACCESS_TOKEN".equals(c.getName())) {
+                if ("JWT_TOKEN".equals(c.getName())) {
                     return c.getValue();
                 }
             }

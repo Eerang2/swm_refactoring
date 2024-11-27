@@ -48,7 +48,6 @@ public class AdminRestController {
         response.addCookie(jwtCookie);
 
         log.debug("jwtCookie : {}", jwtCookie);
-
         return loginRes;
     }
 }

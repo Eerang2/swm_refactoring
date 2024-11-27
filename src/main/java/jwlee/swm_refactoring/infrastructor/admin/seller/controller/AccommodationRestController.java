@@ -36,17 +36,4 @@ public class AccommodationRestController {
         List<Facility> facilities = facilityReq.toFacility();
         accommodationService.saveFacilities(facilities);
     }
-
-    @GetMapping("/get/id")
-    public Accommodation getAccommodation(@CookieValue(value = "AUTH_ACCESS_TOKEN", required = false) String token) {
-        if (token == null || token.isEmpty()) {
-             return null;
-        }
-            Admin admin = jwtUtil.getLoginUserFromAccessToken(token);
-
-            // 필요 시 DB에서 추가 정보를 가져올 수 있음
-            accommodationService.findById(admin.getId());
-            return Accommodation.builder().build();
-
-    }
 }

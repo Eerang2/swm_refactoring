@@ -34,6 +34,5 @@ public class Facility {
                 .accommodationId(accommodationId)
                 .build();
 
-
     }
 }

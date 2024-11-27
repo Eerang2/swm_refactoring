@@ -34,4 +34,21 @@ class JwtTest {
         Assertions.assertEquals(2L,loginUser.getId());
     }
 
+    @Test
+    void testGetLoginUserFromAccessToken() {
+        // Arrange: 테스트용 Admin 객체 및 토큰 생성
+        Admin admin = Admin.builder()
+                .id(1L)
+                .adminId("testAdmin")
+                .build();
+        String accessToken = jwtUtil.createAccessToken(admin);
+
+        // Act: 토큰에서 Admin 정보 추출
+        Admin extractedAdmin = jwtUtil.getLoginUserFromAccessToken(accessToken);
+
+        // Assert: 추출된 정보 검증
+        assertNotNull(extractedAdmin);
+        assertEquals(admin.getId(), extractedAdmin.getId());
+        assertEquals(admin.getAdminId(), extractedAdmin.getAdminId());
+    }
 }

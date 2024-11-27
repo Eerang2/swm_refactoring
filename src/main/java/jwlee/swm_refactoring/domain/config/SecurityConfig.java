@@ -27,7 +27,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/**").permitAll()  // 공개 API 경로 허용
                                 .requestMatchers("/api/seller/**").permitAll()
                                 .requestMatchers("/css/**", "/js/**", "/images/**", "/fonts/**", "/scss/**").permitAll()
-                                .requestMatchers("/admin/**", "/accommodation/**").permitAll()  // 공개 API 경로 허용
+                                .requestMatchers("/admin/seller/**", "/admin/**",  "/accommodation/**").permitAll()  // 공개 API 경로 허용
                 .anyRequest().authenticated()  // 그 외는 인증 필요
                 )
                 .csrf(AbstractHttpConfigurer::disable)
