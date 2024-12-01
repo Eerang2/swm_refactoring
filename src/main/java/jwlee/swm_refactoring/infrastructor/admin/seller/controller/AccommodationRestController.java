@@ -30,6 +30,11 @@ public class AccommodationRestController {
     public Accommodation createAccommodation(@RequestBody AccommodationReq accommodationReq)  {
         return accommodationService.saveAccommodation(accommodationReq.toAccommodation());
     }
+    @PostMapping("/accommodation/update")
+    public Accommodation updateAccommodation(@RequestBody AccommodationReq accommodationReq)  {
+        log.info(accommodationReq.toString());
+        return accommodationService.saveAccommodation(accommodationReq.toAccommodation());
+    }
 
     @PostMapping("/facility/add")
     public void addFacility(@RequestBody FacilityReq facilityReq) {
