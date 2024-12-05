@@ -48,6 +48,10 @@ public class AccommodationController {
         return "accommodation/update";
     }
 
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
 
     // POST 로 바꿔서 데이터 값 받기
     @GetMapping("/seller/ss/{id}")
